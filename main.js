@@ -2,13 +2,15 @@
 
 var config = require('./config') //either js: 'module.exports = {}' or json: '{}'
 var getGist = require('./lib/getGist.js')(config)
+var fs = require('fs')
 var marked = require('marked')
 var express = require('express')
 
 var validGistIdRegex = /^(\d+|[\da-f]{20})$/
+var template = fs.readFileSync('./assets/index.htm')
 
 function renderGist(id, res) {
-  res.write('<script>function copy(from,to){document.querySelector(to).innerHTML=document.querySelector(from).innerHTML}</script><body><div id="content">loading...</div></body>')
+  res.write(template)
   getGist(id, function(error, gist) {
     if (error) return res.end('error!')
     var files = Object.keys(gist.files).map(function(filename){return gist.files[filename]})
