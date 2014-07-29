@@ -1,0 +1,14 @@
+
+@font-face {  font-family: 'PT Serif'; font-style: normal; font-weight: 400;
+              src: local('PT Serif'), local('PTSerif-Regular'), url(/fonts/EgBlzoNBIHxNPCMwXaAhYPesZW2xOQ-xsNqO47m55DA.ttf) format('truetype'); }
+@font-face {  font-family: 'PT Serif'; font-style: normal; font-weight: 700;
+              src: local('PT Serif Bold'), local('PTSerif-Bold'), url(/fonts/QABk9IxT-LFTJ_dQzv7xpJ0EAVxt0G0biEntp43Qt6E.ttf) format('truetype'); }
+
+*             { box-sizing: border-box; -moz-box-sizing: border-box; }
+html          { overflow-y: scroll; margin: 0px;  padding: 0px; }
+body          { color: #000; background-color: #fff; max-width: 800px; margin: 100px auto; font-size: 16px; font-family: 'PT Serif', serif; }
+h1            { margin-top: 0em; margin-bottom: 1em; text-shadow: 1px 1px 1px #777; font-size: 28px; margin-top: 1em; margin-bottom: 0.6em; }
+img           { max-width: 100%; max-height: 100%; }
+
+a:link,a:visited,a:active { color: #666; text-decoration: underline; }
+a:hover                   { color: #666; text-decoration: none; }
