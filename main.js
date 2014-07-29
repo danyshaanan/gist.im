@@ -16,7 +16,7 @@ function renderGist(id, res) {
     var files = Object.keys(gist.files).map(function(filename){return gist.files[filename]})
     var mdFiles = files.filter(function(file){return file.language === 'Markdown'})
     var html = mdFiles.map(function(file){return marked(file.content)}).join('<hr />')
-    res.end('<span id="source" style="display:none">' + html + '</span><script>copy("#source","#content")</script>')
+    res.end('<span id="gistContent" style="display:none">' + html + '</span><script>renderContent("span#gistContent")</script>')
   })
 }
 
