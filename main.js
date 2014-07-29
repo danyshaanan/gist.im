@@ -13,8 +13,10 @@ app.get(validGistIdPathRegex, function(req, res, next) {
 
 // Add error on invalid paths
 
-app.listen(config.port)
-console.log('now listening to port', config.port)
+var port = config.port || 3000
+
+app.listen(port)
+console.log('now listening to port', port)
 
 
 
