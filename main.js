@@ -24,11 +24,12 @@ app.get(/^(.*)$/, function(req, res, next) {
   var requestPath = req.params[0].replace(/^\//,'')
   if (requestPath === '') requestPath = config.defaultGist
   //varify requestPath against a regex
+  res.write('<script>function copy(from,to){document.querySelector(to).innerHTML=document.querySelector(from).innerHTML}</script><body><div id="content">loading...</div></body>')
   github.gists.get({ id: requestPath }, function(error, gist) {
-    if (error) return res.send('error!')
+    if (error) return res.end('error!')
     var firstFile = gist.files[Object.keys(gist.files)[0]]
-    if (firstFile.language === 'Markdown') res.send(marked(firstFile.content))
-    else res.send('not a markdown file')
+    if (firstFile.language === 'Markdown') res.end('<span id="source" style="display:none">' + marked(firstFile.content) + '</span><script>copy("#source","#content")</script>')
+    else res.end('not a markdown file')
   })
 });
 
