@@ -7,7 +7,7 @@ Inspired by gist.io
 
 
 #### TODO:
-* Add html structure
+* Add html structure + gist and gist author data
 * Add css
 * improve error handling
 * Add caching (volatile/fs/db? "late" caching?)
