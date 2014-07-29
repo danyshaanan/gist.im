@@ -6,9 +6,10 @@ A nodejs server that renders a markdown gist as html at /that-gist-id
 Inspired by gist.io
 
 
-#### Planned flow:
-1. Client requests `/gist-id`
-2. Server returns static html
-3. 
- * Server fetches gist from github, renders html, stores result
- * Static html polls server for result, then shows it
+#### TODO:
+* Add html structure
+* Add css
+* Send to client gist metadata, use for &lt;title&gt;, udated date, etc
+* Check client side md rendering (could be implemented side by side)
+* improve error handling
+* Add caching (volatile/fs/db? "late" caching?)
