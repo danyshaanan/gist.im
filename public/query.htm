@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>...</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta name='googlebot' content='noarchive,nosnippet'>
+<meta name='robots'    content='noarchive,nosnippet'>
+<meta name='description' content='?' />
+<meta name='keywords' content='gist' />
+<script type='text/javascript' src='/js/lib/jquery.min.js'></script>
+<script type='text/javascript' src='/js/lib/marked.min.js'></script>
+
+<script>
+'use strict'
+
+var validGistIdRegex = /^(\d+|[\da-f]{20})$/
+var config = {
+  defaultGist: 8071935
+}
+
+function fileToHtml(file) {
+  return marked(file.content)
+}
+
+function renderFromJson(gist) {
+  window.gist = gist
+  var htmls = Object.keys(gist.files).map(function(fileName) {
+    return gist.files[fileName] && gist.files[fileName].language === 'Markdown' && fileToHtml(gist.files[fileName])
+  }).filter(Boolean)
+  document.querySelector('#content').innerHTML = htmls.join('<hr />')
+}
+
+window.onload = function() {
+  var id = location.search.replace(/^[\?\/]/,'') || location.pathname.replace(/^[\?\/]/,'') || config.defaultGist
+  if (validGistIdRegex.test(id)) {
+    $.get('https://api.github.com/gists/' + id, function(gist) {
+      // console.log(JSON.stringify(gist,0,2))
+      renderFromJson(gist)
+    });
+  } else {
+    document.querySelector('#content').innerHTML = 'invalid gist id'
+  }
+}
+
+</script>
+
+</head>
+<body>
+
+<body>
+  <div id='content'><h2 id='preloader'>loading...</h2></div>
+</body>
+
+<!-- <script type='text/javascript' src='/js/ga.js'></script> -->
+</body>
+</html>

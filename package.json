@@ -1,7 +1,6 @@
 {
   "dependencies": {
-    "express": "~4.7.2",
-    "github": "~0.2.1"
+    "express": "~4.7.2"
   },
   "private": true
 }
