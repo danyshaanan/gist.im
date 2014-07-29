@@ -8,7 +8,7 @@ var validGistIdPathRegex = /^\/(\d+|[\da-f]{20})?$/
 var app = express()
 app.use(express.static(__dirname + '/public/'))
 app.get(validGistIdPathRegex, function(req, res, next) {
-  return res.sendfile(__dirname + '/public/query.htm')
+  return res.sendfile(__dirname + '/index.htm')
 })
 
 // Add error on invalid paths
