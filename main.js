@@ -27,9 +27,10 @@ app.get(/^(.*)$/, function(req, res, next) {
   res.write('<script>function copy(from,to){document.querySelector(to).innerHTML=document.querySelector(from).innerHTML}</script><body><div id="content">loading...</div></body>')
   github.gists.get({ id: requestPath }, function(error, gist) {
     if (error) return res.end('error!')
-    var firstFile = gist.files[Object.keys(gist.files)[0]]
-    if (firstFile.language === 'Markdown') res.end('<span id="source" style="display:none">' + marked(firstFile.content) + '</span><script>copy("#source","#content")</script>')
-    else res.end('not a markdown file')
+    var files = Object.keys(gist.files).map(function(filename){return gist.files[filename]})
+    var mdFiles = files.filter(function(file){return file.language === 'Markdown'})
+    var html = mdFiles.map(function(file){return marked(file.content)}).join('<hr />')
+    res.end('<span id="source" style="display:none">' + html + '</span><script>copy("#source","#content")</script>')
   })
 });
 
