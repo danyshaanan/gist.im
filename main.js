@@ -25,9 +25,6 @@ function minimizeGist(gist) {
     description: gist.description,
     comments: gist.comments,
     user: gist.user,
-    extra: {
-      fileNames: Object.keys(gist.files)
-    },
     files: Object.keys(gist.files).reduce(function(result, fileName) {
       result[fileName] = gist.files[fileName].language === 'Markdown' && gist.files[fileName]
       return result
