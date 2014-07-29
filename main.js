@@ -3,7 +3,7 @@
 var config = require('./config') //either js: 'module.exports = {}' or json: '{}'
 var express = require('express')
 
-var validGistIdPathRegex = /^\/(\d+|[\da-f]{20})$/
+var validGistIdPathRegex = /^\/(\d+|[\da-f]{20})?$/
 
 var app = express()
 app.use(express.static(__dirname + '/public/'))
