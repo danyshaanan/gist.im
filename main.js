@@ -1,6 +1,12 @@
 'use strict'
 
-var config = require('./config') //either js: 'module.exports = {}' or json: '{}'
+var config
+try {
+  config = require('./config') //either js: 'module.exports = {}' or json: '{}'
+} catch(e) {
+  config = {}
+}
+
 var express = require('express')
 
 var validGistIdPathRegex = /^\/(\d+|[\da-f]{20})?$/
