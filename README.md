@@ -11,3 +11,4 @@ gist.im is different by being almost entirely client-side. The server side bit i
 #### TODO:
 * Add html structure + gist and gist author data
 * Add css
+* Add code highlighting for \`\`\`Markdown code blocks\`\`\`
