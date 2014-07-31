@@ -2,5 +2,8 @@
   "dependencies": {
     "express": "~4.7.2"
   },
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node main.js"
+  }
 }
