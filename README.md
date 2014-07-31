@@ -19,5 +19,4 @@ npm start
 ```
 
 #### TODO
-* Add html structure + gist and gist author data
-* Add css
+* Add html structure + gist and gist author data + refine css
