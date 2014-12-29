@@ -4,6 +4,6 @@
   },
   "private": true,
   "scripts": {
-    "start": "node main.js"
+    "start": "node gist.im.js"
   }
 }
