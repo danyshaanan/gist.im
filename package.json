@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "express": "~4.7.2"
-  },
-  "private": true,
-  "scripts": {
-    "start": "node gist.im.js"
-  }
-}
