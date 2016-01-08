@@ -29,8 +29,13 @@ function renderFromJson(gist) {
 }
 
 function catchGistId(str) {
-  var match = str.match(/^(.*[\?\/\#])(\d+|[\da-f]{20})([\?\&\/\#].*)?$/)
-  return match && match[2]
+  return str
+    .replace(/(.*\/\/)?[^\/]+[\/#]/, '')
+    .split(/[\?\/#]/)
+    .reduce(function(id, part) {
+      if (id) return id
+      if (/^\d+|[\da-f]{20}$/.test(part)) return part
+    }, null)
 }
 
 window.onload = function init(cb) {
